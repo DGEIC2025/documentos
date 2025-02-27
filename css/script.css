@@ -1,0 +1,167 @@
+.d-flex , h2{
+  display: flex;
+  justify-content: center; /* Centra los botones horizontalmente */
+  align-items: center; /* Centra verticalmente (si el contenedor tiene altura definida) */
+  flex-wrap: wrap; /* Permite que los botones se acomoden en varias líneas si es necesario */
+  gap: 20px; /* Espaciado uniforme entre los botones */
+  margin-bottom: 25px;
+}
+
+.custom-button, .custom-button2 {
+  display: inline-block; /* Permite que <a> se vea como botón */
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+  color: #495057;
+  border: 1px solid #ced4da;
+  width: 250px; /* Ancho fijo */
+  padding: 10px;
+  border-radius: 10px; /* Bordes redondeados */
+  text-align: center;
+  text-decoration: none; /* Eliminar subrayado */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  margin: 0 20px; /* Separación entre botones */
+  transition: all 0.3s ease-in-out;
+
+ 
+}
+
+a {
+  text-decoration: none;
+}
+
+.custom-button:hover, .custom-button2:hover {
+  border: 1px solid #80bdff;
+  box-shadow: 4px 4px 10px rgba(128, 189, 255, 0.5);
+  text-decoration: none;
+}
+
+.custom-button2 {
+  font-size: 18px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+  .d-flex {
+    flex-direction: column; /* Apilar los botones */
+  }
+  .custom-button, .custom-button2 {
+    width: 100%; /* Que ocupen todo el ancho */
+    margin: 10px 0; /* Separación entre los botones */
+  }
+}
+
+
+  
+.container {
+  display: flex;
+  gap: 20px; /* Espaciado entre los contenedores */
+  justify-content: center; /* Centrar los elementos horizontalmente */
+  flex-wrap: wrap; /* Ajuste a múltiples filas si es necesario */
+  padding: 20px; /* Margen interno del contenedor */
+}
+.text-group {
+  display: flex;
+  flex-direction: column; /* Elementos en columna */
+  align-items: center; /* Centrar título y botón */
+  width: 15%; /* Ajustar ancho relativo */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px; /* Espaciado interno */
+/*  background-color: #f9f9f9;  Fondo ligero */
+}
+.text-group h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #333;
+}
+.text-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 80%;
+  font-size: 14px;
+  resize: none;
+  text-align: center; /* Centra el texto horizontalmente */
+  height: 80px; /* Ajusta la altura según sea necesario */
+  line-height: 80px; /* Igual a la altura para centrar verticalmente */
+  overflow: hidden; /* Evita el scroll innecesario */
+  white-space: nowrap; /* Evita el salto de línea */
+}
+
+
+.container2 {
+  display: flex;
+  gap: 20px; /* Espaciado entre los contenedores */
+  justify-content: center; /* Centrar los elementos horizontalmente */
+  flex-wrap: wrap; /* Ajuste a múltiples filas si es necesario */
+  padding: 20px; /* Margen interno del contenedor */
+}
+.text-group2 {
+  display: flex;
+  flex-direction: column; /* Elementos en columna */
+  align-items: center; /* Centrar título y botón */
+  width: 27%; /* Ajustar ancho relativo */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 25px; /* Espaciado interno */
+ /*  background-color: #f9f9f9; Fondo ligero */
+}
+.text-group2 h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #333;
+}
+.text-group2 textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%; /* Usar el 100% del ancho del contenedor */
+  font-size: 13.8px;
+  resize: none;
+  height: 600px;
+}
+
+
+textarea:hover { 
+  border-color:  #80bdff;
+box-shadow: 4px 4px 12px  #80bdff;
+background-color: #d8eaff;
+border-style: dashed;
+border-width: 2px;
+}
+/* Efecto al hacer clic (foco) */
+textarea:focus {
+  border-color: #80bdff;
+box-shadow: 4px 4px 12px #80bdff;
+background-color: #d8eaff;
+
+}
+
+
+
+
+.text-group, .text-group2 {
+  position: relative;
+  /* display: inline-block; */
+}
+
+/* Estiliza el icono 📋 */
+.clipboard-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 30px;
+  display: none; /* Oculto por defecto */
+  cursor: pointer;
+}
+
+/* Muestra el icono cuando el textarea tiene hover */
+.text-group textarea:hover + .clipboard-icon,
+.text-group2 textarea:hover + .clipboard-icon {
+  display: block;
+}
