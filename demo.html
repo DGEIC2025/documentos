@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D E M O</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .form-container {
+            margin-top: 50px;
+            padding-top: 10px;
+            /* Cambiar este valor según tus necesidades */
+            padding-right: 30px;
+            padding-bottom: 30px;
+            padding-left: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-bottom: 50px;
+        }
+
+        .form-header {
+            margin-bottom: 20px;
+        }
+
+        .btn-custom {
+            font-size: 18px;
+            background-color: white;
+            color: #495057;
+            border: 1px solid #ced4da;
+            width: 100%;
+            margin: 10px 0;
+
+
+        }
+
+        .btn-custom:hover {
+            color: #495057;
+            border: 1px solid #80bdff;
+            box-shadow: 4px 4px 10px rgba(128, 189, 255, 0.5);
+        }
+
+        .campo-vacio {
+            border: 1px solid red;
+        }
+
+        /* #mes, #numeromes, #dia, #year {
+  display: none;
+} */
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6 form-container">
+
+
+                <h2 class="text-center form-header mb-4 mt-4">Demo</h2>
+                <form id="myForm">
+
+           
+               
+                    <div class="form-group">
+                        <label for="fecha">Fecha del Oficio</label>
+                        <div class="form-row">
+                            <div class="col">
+                                <select class="form-control" id="diao" name="diao">
+                                    <option value="" disabled selected>Día</option>
+                                    <option value="01">1</option>
+                                    <option value="02">2</option>
+                                    <option value="03">3</option>
+                                    <option value="04">4</option>
+                                    <option value="05">5</option>
+                                    <option value="06">6</option>
+                                    <option value="07">7</option>
+                                    <option value="08">8</option>
+                                    <option value="09">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select class="form-control" id="meso" name="meso">
+                                    <option value="" disabled selected>Mes</option>
+                                    <option value="enero">Enero</option>
+                                    <option value="febrero">Febrero</option>
+                                    <option value="marzo">Marzo</option>
+                                    <option value="abril">Abril</option>
+                                    <option value="mayo">Mayo</option>
+                                    <option value="junio">Junio</option>
+                                    <option value="julio">Julio</option>
+                                    <option value="agosto">Agosto</option>
+                                    <option value="septiembre">Septiembre</option>
+                                    <option value="octubre">Octubre</option>
+                                    <option value="noviembre">Noviembre</option>
+                                    <option value="diciembre">Diciembre</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col">
+                                <select class="form-control" id="dia" name="dia">
+                                    <option value="" disabled selected>Día</option>
+                                    <option value="01">1</option>
+                                    <option value="02">2</option>
+                                    <option value="03">3</option>
+                                    <option value="04">4</option>
+                                    <option value="05">5</option>
+                                    <option value="06">6</option>
+                                    <option value="07">7</option>
+                                    <option value="08">8</option>
+                                    <option value="09">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select class="form-control" id="numeromes" name="numeromes">
+                                    <option value="" disabled selected>Selecciona un mes</option>
+                                    <option value="01">1</option>
+                                    <option value="02">2</option>
+                                    <option value="03">3</option>
+                                    <option value="04">4</option>
+                                    <option value="05">5</option>
+                                    <option value="06">6</option>
+                                    <option value="07">7</option>
+                                    <option value="08">8</option>
+                                    <option value="09">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select class="form-control" id="mes" name="mes" onchange="replicarValor()">
+                                    <option value="" disabled selected>Mes</option>
+                                    <option value="enero">Enero</option>
+                                    <option value="febrero">Febrero</option>
+                                    <option value="marzo">Marzo</option>
+                                    <option value="abril">Abril</option>
+                                    <option value="mayo">Mayo</option>
+                                    <option value="junio">Junio</option>
+                                    <option value="julio">Julio</option>
+                                    <option value="agosto">Agosto</option>
+                                    <option value="septiembre">Septiembre</option>
+                                    <option value="octubre">Octubre</option>
+                                    <option value="noviembre">Noviembre</option>
+                                    <option value="diciembre">Diciembre</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select class="form-control" id="year" name="year" onchange="replicarValor()">
+                                    <option value="" disabled selected>Año</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+                                    <option value="2026">2026</option>
+                                    <option value="2027">2027</option>
+                                    <option value="2028">2028</option>
+                                    <option value="2029">2029</option>
+                                    <option value="2030">2030</option>
+
+                                </select>
+                            </div>.
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        
+                            <button type="button" class="btn btn-custom btn-md" onclick="location='index.html'">
+                                Regresar al Menú
+                            </button>
+                       
+                
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <button type="button" class="btn btn-custom btn-md" onclick="generateDocument()">
+                            Generar Oficio
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pizzip@3.1.1/dist/pizzip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docxtemplater@3.27.1/build/docxtemplater.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+
+    <script>
+
+        async function loadTemplate(url) {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Failed to load template: ${response.statusText}`);
+            }
+            const arrayBuffer = await response.arrayBuffer();
+            return arrayBuffer;
+        }
+
+        async function generateDocument() {
+            // Obtener los valores de todos los campos
+            const diao = document.getElementById('diao').value;
+            const meso = document.getElementById('meso').value;
+            const dia = document.getElementById('dia').value;
+            const numeromes = document.getElementById('numeromes').value;
+            const mes = document.getElementById('mes').value;
+            const year = document.getElementById('year').value;
+           
+
+            const campos = ['diao', 'meso', 'dia', 'numeromes', 'mes', 'year']
+
+            // Verificar y resaltar campos vacíos
+            let algunCampoVacio = false;
+
+            // Iterar sobre los campos y verificar si están vacíos
+            campos.forEach(campoId => {
+                const campo = document.getElementById(campoId);
+                if (!campo.value.trim()) {
+                    campo.classList.add('campo-vacio'); // Agregar clase campo-vacio si el campo está vacío
+                    algunCampoVacio = true;
+                } else {
+                    campo.classList.remove('campo-vacio'); // Quitar clase campo-vacio si el campo está lleno
+                }
+            });
+
+            if (algunCampoVacio) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Campos incompletos',
+                    html: 'Para generar el documento, es necesario <br> llenar todos los campos del formulario.<br><br>Favor de completar aquellos marcados en rojo.',
+                    timer: 10000,
+
+                    confirmButtonText: 'Aceptar'
+                });
+                return;
+            }
+
+            // Continuar con la generación del documento
+            const templateUrl = 'documentos/demo.docx'; // URL o ruta del archivo de plantilla
+            let arrayBuffer;
+
+            try {
+                arrayBuffer = await loadTemplate(templateUrl);
+            } catch (error) {
+                console.error(error);
+                alert('Error al cargar la plantilla: ' + error.message);
+                return;
+            }
+
+            const zip = new PizZip(arrayBuffer);
+            const doc = new window.docxtemplater().loadZip(zip);
+
+            doc.setData({
+          
+                diao: diao,
+                meso: meso,
+                dia: dia,
+                numeromes: numeromes,
+                mes: mes,
+                year: year
+            });
+
+            try {
+                doc.render();
+            } catch (error) {
+                const e = {
+                    stack: error.stack,
+                    properties: error.properties,
+                };
+                console.error(JSON.stringify({ error: e }, null, 2));
+                alert('Error al generar el documento: ' + error.message);
+                return;
+            }
+
+            const out = doc.getZip().generate({
+                type: "blob",
+                mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            });
+
+            const fileName = `Documento.docx`;
+
+            saveAs(out, fileName);
+
+        }
+
+
+    </script>
+
+    <script>
+        function convertirAMayusculas(input) {
+            input.value = input.value.toUpperCase();
+
+        }
+
+        function validatePositiveNumber(input) {
+            if (input.value < 0) {
+                input.value = Math.abs(input.value);
+            }
+        }
+
+
+    </script>
+
+   
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const today = new Date();
+    
+    // Obtener el día actual con dos dígitos
+    const currentDay = String(today.getDate()).padStart(2, '0');
+    
+    // Arrays con los nombres y los números de los meses
+    const meses = [
+        "enero", "febrero", "marzo", "abril", "mayo", "junio",
+        "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+    ];
+    
+    const currentMonthName = meses[today.getMonth()]; // Nombre del mes en español
+    const currentMonthNumber = String(today.getMonth() + 1).padStart(2, '0'); // Mes en formato 01, 02, ...
+
+    const currentYear = today.getFullYear(); // Obtener el año actual
+
+    // Asignar valores a los campos correspondientes
+    document.getElementById('dia').value = currentDay;
+    document.getElementById('mes').value = currentMonthName;
+    document.getElementById('year').value = currentYear;
+    document.getElementById('numeromes').value = currentMonthNumber; // Ahora también en numeromes
+
+
+    // Llamar a la función para actualizar el número del mes
+    replicarValor();
+});
+
+    </script>
+</body>
+
+</html>

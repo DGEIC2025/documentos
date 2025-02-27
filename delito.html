@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Documento Word</title>
+    <style>
+        .campo-vacio {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario para Crear Documento Word</h1>
+
+    <!-- Formulario para agregar datos -->
+    <form id="formulario">
+        <label for="oficio">Oficio:</label>
+        <input type="text" id="oficio" required>
+        <label for="remitente">Remitente:</label>
+        <input type="text" id="remitente" required>
+        <label for="cargo">Cargo:</label>
+        <input type="text" id="cargo" required>
+        <label for="dia">Día:</label>
+        <input type="number" id="dia" required>
+        <label for="mes">Mes:</label>
+        <input type="text" id="mes" required>
+        <button type="button" id="btn-agregar">Agregar Fila</button>
+    </form>
+
+    <button id="btn-generar">Generar Documento</button>
+
+    <!-- Scripts necesarios -->
+    <script src="https://cdn.jsdelivr.net/npm/pizzip@3.1.1/dist/pizzip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docxtemplater@3.29.4/build/docxtemplater.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+
+    <script>
+        const filas = []; // Arreglo para almacenar las filas de datos
+
+        // Agregar fila al arreglo
+        function agregarFila() {
+            // Obtener valores del formulario
+            const oficio = document.getElementById('oficio').value.trim();
+            const remitente = document.getElementById('remitente').value.trim();
+            const cargo = document.getElementById('cargo').value.trim();
+            const dia = document.getElementById('dia').value.trim();
+            const mes = document.getElementById('mes').value.trim();
+
+            // Validar campos
+            if (!oficio || !remitente || !cargo || !dia || !mes) {
+                alert('Por favor, completa todos los campos antes de agregar.');
+                return;
+            }
+
+            // Agregar datos al arreglo
+            filas.push({ oficio, remitente, cargo, dia, mes });
+            alert('Fila agregada con éxito.');
+
+            // Limpiar los campos del formulario
+            document.getElementById('formulario').reset();
+        }
+
+        async function loadTemplate(url) {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Error al cargar la plantilla: ${response.statusText}`);
+            }
+            return await response.arrayBuffer();
+        }
+
+        async function generateDocument() {
+            if (filas.length === 0) {
+                alert('No se han agregado filas. Por favor, añade datos al formulario.');
+                return;
+            }
+
+            console.log("Datos enviados a la plantilla:", filas);
+
+            // Cargar la plantilla Word
+            const templateUrl = 'documentos/plantilla_tabla.docx'; // Ruta a tu plantilla
+            let arrayBuffer;
+            try {
+                arrayBuffer = await loadTemplate(templateUrl);
+            } catch (error) {
+                alert('Error al cargar la plantilla: ' + error.message);
+                return;
+            }
+
+            const zip = new PizZip(arrayBuffer);
+            const Docxtemplater = window.docxtemplater;
+            const doc = new Docxtemplater(zip, { paragraphLoop: true, linebreaks: true });
+
+            // Reemplazar los datos en la tabla de la plantilla
+            try {
+                doc.setData({ filas });
+                doc.render();
+            } catch (error) {
+                console.error("Error al renderizar el documento:", JSON.stringify(error, null, 2));
+                alert("Error al generar el documento. Verifica la consola para más detalles.");
+                return;
+            }
+
+            // Descargar el archivo generado
+            const out = doc.getZip().generate({
+                type: 'blob',
+                mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            });
+            saveAs(out, 'DocumentoConTabla.docx');
+        }
+
+        // Asociar eventos a los botones
+        document.getElementById('btn-agregar').addEventListener('click', agregarFila);
+        document.getElementById('btn-generar').addEventListener('click', generateDocument);
+    </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesos y Scripts</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Para incluir todos los estilos (solido, regular, brands, etc.) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="css/script.css">
+
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="row justify-content-center">
+          <div class="col-sm-12 col-md-8 col-lg-6 form-container">
+            <h2 class="text-center form-header mb-4">ENLACES</h2>
+      
+            <div class="d-flex justify-content-center">
+              <a href="http://192.168.1.69/Sicapa/login.php" target="_blank" class="btn custom-button">
+                SICAPA
+              </a>
+              <a href="http://192.168.201.250/SA/" target="_blank" class="btn custom-button">
+                Medidas
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+
+      
+    <div class="container">
+        <!-- Grupo 1 -->
+        <div class="text-group">
+            <h3>Usuario</h3>
+           
+            <textarea id="user" rows="4" readonly>
+                administrador
+            </textarea>
+            <span class="clipboard-icon">📋 </span>
+            <!-- <button onclick="copyToClipboard('copyText1')">Copiar Área 1</button> -->
+        </div>
+        <!-- Grupo 2 -->
+        <div class="text-group">
+            <h3>Contraseña</h3>
+            <textarea id="pass" rows="4" readonly>
+                P2g0j08
+            </textarea>
+            <span class="clipboard-icon">📋 </span>
+            <!-- <button onclick="copyToClipboard('copyText2')">Copiar Área 2</button> -->
+        </div>
+        <!-- Grupo 3 -->
+        <div class="text-group">
+            <h3>Servicio</h3>
+            <textarea id="serv" rows="4" readonly>
+                proddev
+            </textarea>
+            <span class="clipboard-icon">📋 </span>
+            <!-- <button onclick="copyToClipboard('copyText3')">Copiar Área 3</button> -->
+        </div>
+
+
+    </div>
+
+    <div class="container2">
+        <!-- Grupo 1 -->
+        <div class="text-group2">
+            <h3>Búsqueda por Nombre</h3>
+            <textarea id="name" rows="4" readonly>
+select  distinct fisica.nombre || ' ' || fisica.appat || ' ' || fisica.apmat as Nombre,
+C_ROL.ROL, c_agencia.nombreagencia || '/' || averiguacion_previa.consecutivo || '/' || averiguacion_previa.anual as Carpeta,
+AVERIGUACION_PREVIA.FECHA_INICIO, fisica.id_servidor, c_servidor.amp, averiguacion_previa.estatus
+from   fisica, perrolave, c_servidor, averiguacion_previa, c_agencia, C_ROL where  
+fisica.id_persona = perrolave.id_persona and averiguacion_previa.estatus='A' and 
+c_servidor.id_servidor = fisica.id_servidor and averiguacion_previa.id_averiguacion = perrolave.id_averiguacion
+and averiguacion_previa.id_agencia=c_agencia.id_agencia AND AVERIGUACION_PREVIA.ID_SERVIDOR = C_AGENCIA.ID_SERVIDOR
+and fisica.id_servidor = averiguacion_previa.id_servidor AND C_ROL.ID_ROL = PERROLAVE.ID_ROL
+and upper(trim(fisica.nombre) || ' ' || trim(fisica.appat) || ' ' || trim(fisica.apmat)) like '%MEZA%CUEVAS%AND%';
+            </textarea>
+            <span class="clipboard-icon">📋 </span>
+            <!-- <button onclick="copyToClipboard('copyText1')">Copiar Área 1</button> -->
+        </div>
+        <!-- Grupo 2 -->
+        <div class="text-group2">
+            <h3>Búsqueda por Carpeta</h3>
+            <textarea id="ci" rows="4" readonly>
+Select distinct c_agencia.nombreagencia || '/' || averiguacion_previa.consecutivo || '/' ||
+averiguacion_previa.anual As CARPETA, c_rol.rol, TRIM(fisica.appat) || ' ' || TRIM(fisica.apmat) || ' ' || TRIM(fisica.nombre) As NOMBRE, averiguacion_previa.fecha_inicio, c_delito.delito, fisica.edad
+From perrolave t, fisica, c_rol, averiguacion_previa, hecho, c_delito, delito, c_agencia,
+c_servidor Where t.id_persona = fisica.id_persona And c_agencia.id_agencia = averiguacion_previa.id_agencia
+And t.id_rol = c_rol.id_rol And t.id_averiguacion = averiguacion_previa.id_averiguacion
+And hecho.id_hecho = delito.id_hecho And delito.id_catalogodelito = c_delito.id_catalogodelito
+And t.id_servidor = c_servidor.id_servidor And averiguacion_previa.id_servidor = t.id_servidor
+And fisica.id_servidor = t.id_servidor And hecho.id_servidor = t.id_servidor
+And t.ID_AVERIGUACION = hecho.ID_AVERIGUACION And delito.ID_SERVIDOR = hecho.ID_SERVIDOR
+And averiguacion_previa.ID_SERVIDOR = c_agencia.ID_SERVIDOR And c_agencia.nombreagencia || '/' || 
+averiguacion_previa.consecutivo || '/' || averiguacion_previa.anual = 'SC01/13855/2012';
+            </textarea>
+            <span class="clipboard-icon">📋 </span>
+            <!-- <button onclick="copyToClipboard('copyText2')">Copiar Área 2</button> -->
+        </div>
+        <!-- Grupo 3 -->
+        <div class="text-group2">
+        
+            <h3>Búsqueda de Domicilio</h3>
+            <textarea id="dom" rows="4" readonly>
+Select Distinct FISICA.NOMBRE || ' ' || 
+FISICA.APPAT || ' ' || FISICA.APMAT As Nombre,
+C_AGENCIA.NOMBREAGENCIA || '/' || t.CONSECUTIVO 
+|| '/' || t.ANUAL As Carpeta, t.FECHA_INICIO,
+PERSONA.DOMICILIO, PERSONA.TELEFONO, 
+C_MUNICIPIO.NOMBREMUNICIPIO From AVERIGUACION_PREVIA t, 
+PERROLAVE, FISICA, C_AGENCIA,PERSONA, C_MUNICIPIO
+Where t.ID_AVERIGUACION = PERROLAVE.ID_AVERIGUACION
+And PERROLAVE.ID_PERSONA = FISICA.ID_PERSONA
+And t.ID_AGENCIA = C_AGENCIA.ID_AGENCIA
+And PERSONA.ID_PERSONA = FISICA.ID_PERSONA
+And PERSONA.ID_MUNICIPIO = C_MUNICIPIO.ID_MUNICIPIO
+And t.ID_SERVIDOR = PERROLAVE.ID_SERVIDOR
+And C_AGENCIA.ID_SERVIDOR = t.ID_SERVIDOR
+And PERROLAVE.ID_SERVIDOR = FISICA.ID_SERVIDOR
+And FISICA.ID_SERVIDOR = PERSONA.ID_SERVIDOR
+And (FISICA.NOMBRE || ' ' || FISICA.APPAT || ' ' || FISICA.APMAT Like
+'%OTEO%LASTRA%' And t.ESTATUS = 'A')
+            </textarea>
+            <span class="clipboard-icon">📋 </span>
+            <!-- <button onclick="copyToClipboard('copyText3')">Copiar Área 3</button> -->
+        </div>
+
+    </div>
+
+    <div class="main-container">
+        <div class="row justify-content-center">
+          <div class="col-sm-12 col-md-8 col-lg-6 form-container">
+        
+      
+            <div class="d-flex justify-content-center">
+              <input
+                type="button"
+                class="btn custom-button2"
+                value="Regresar al Menú"
+                onclick="location='index.html'"
+              />
+              
+            </div>
+      
+          </div>
+        </div>
+      </div>
+</body>
+
+
+<script src="js/script.js"></script>
+
+</body>
+</html> 
