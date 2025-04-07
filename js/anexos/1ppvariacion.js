@@ -11,11 +11,12 @@ async function loadTemplate(url) {
 async function generateOficio() {
     // Obtener los valores de todos los campos
     const oficio = document.getElementById('oficio').value.trim();
-    const year = document.getElementById('year').value.trim();
     const numeromes = document.getElementById('numeromes').value;
-    const imputadop = document.getElementById('imputadop').value.trim();
+    const imputado = document.getElementById('imputado').value.trim();
+    const year = document.getElementById('year').value;
+    const variacion = document.getElementById('variacion').value.trim();
 
-    const campos = ['oficio',  'numeromes',  'imputadop', 'year']
+    const campos = ['oficio',  'numeromes', 'year', 'imputado', 'variacion']
    
     // Verificar y resaltar campos vacíos
     let algunCampoVacio = false;
@@ -44,7 +45,7 @@ async function generateOficio() {
     }
 
     // Continuar con la generación del documento
-    const templateUrl = 'anexos/2p1integra.docx'; // URL o ruta del archivo de plantilla
+    const templateUrl = 'anexos/1ppvariacion.docx'; // URL o ruta del archivo de plantilla
     let arrayBuffer;
 
     try {
@@ -62,7 +63,8 @@ async function generateOficio() {
         oficio: oficio,
         numeromes: numeromes,
         year: year,
-        imputadop: imputadop
+        imputado: imputado,
+        variacion: variacion
     });
 
     try {

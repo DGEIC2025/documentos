@@ -8,15 +8,25 @@ async function loadTemplate(url) {
     return arrayBuffer;
 }
  
-async function generateOficio() {
+async function generateDocument() {
     // Obtener los valores de todos los campos
     const oficio = document.getElementById('oficio').value.trim();
-    const year = document.getElementById('year').value.trim();
+    const remitente = document.getElementById('remitente').value.trim();
+    const cargo = document.getElementById('cargo').value.trim();
+    const diao = document.getElementById('diao').value;
+    const meso = document.getElementById('meso').value;
+    const dia = document.getElementById('dia').value;
     const numeromes = document.getElementById('numeromes').value;
-    const imputadop = document.getElementById('imputadop').value.trim();
+    const mes = document.getElementById('mes').value;
+    const year = document.getElementById('year').value;
+    const carpeta = document.getElementById('carpeta').value.trim();
+    const nombre = document.getElementById('nombre').value.trim();
+    const imputado = document.getElementById('imputado').value.trim();
+    const variacion = document.getElementById('variacion').value.trim();
 
-    const campos = ['oficio',  'numeromes',  'imputadop', 'year']
-   
+    const campos = ['oficio', 'remitente', 'cargo', 'diao' , 'meso' ,'dia' , 'year','numeromes', 'mes' , 'carpeta' , 'imputado' ,'variacion', 'nombre']
+
+
     // Verificar y resaltar campos vacíos
     let algunCampoVacio = false;
 
@@ -35,16 +45,15 @@ async function generateOficio() {
         Swal.fire({
             icon: 'warning',
             title: 'Campos incompletos',
-            html: 'Para generar el documento, es necesario <br> llenar todos los campos del formulario.<br><br>Favor de completar aquellos marcados en rojo.',
-            timer: 10000,
-
-            confirmButtonText: 'Aceptar'
+            text: 'Para generar el documento, es necesario llenar todos los campos del formulario. Favor de completar aquellos marcados en rojo.',
+            confirmButtonText: 'Entendido'
         });
         return;
     }
+    
 
     // Continuar con la generación del documento
-    const templateUrl = 'anexos/2p1integra.docx'; // URL o ruta del archivo de plantilla
+    const templateUrl = 'documentos/1pnvariacion.docx'; // URL o ruta del archivo de plantilla
     let arrayBuffer;
 
     try {
@@ -60,9 +69,18 @@ async function generateOficio() {
 
     doc.setData({
         oficio: oficio,
+        remitente: remitente,
+        cargo: cargo,
+        diao: diao,
+        meso: meso,
+        dia: dia,
         numeromes: numeromes,
+        mes: mes,
         year: year,
-        imputadop: imputadop
+        carpeta: carpeta,
+        imputado: imputado,
+        variacion: variacion,
+        nombre: nombre
     });
 
     try {
@@ -82,9 +100,8 @@ async function generateOficio() {
         mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
     });
 
-    const fileName = `Anexo ${oficio || 'sinOficio'}.docx`;
+    const fileName = `Documento_${oficio || 'sinOficio'}.docx`;
 
     saveAs(out, fileName);
     
 }
-

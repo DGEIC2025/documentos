@@ -7,16 +7,25 @@ async function loadTemplate(url) {
     const arrayBuffer = await response.arrayBuffer();
     return arrayBuffer;
 }
- 
-async function generateOficio() {
+  
+async function generateDocument() {
     // Obtener los valores de todos los campos
     const oficio = document.getElementById('oficio').value.trim();
-    const year = document.getElementById('year').value.trim();
+    const oficio2 = document.getElementById('oficio2').value.trim();
+    const remitente = document.getElementById('remitente').value.trim();
+    const cargo = document.getElementById('cargo').value.trim();
+    const diao = document.getElementById('diao').value;
+    const meso = document.getElementById('meso').value;
+    const dia = document.getElementById('dia').value;
     const numeromes = document.getElementById('numeromes').value;
-    const imputadop = document.getElementById('imputadop').value.trim();
+    const mes = document.getElementById('mes').value;
+    const year = document.getElementById('year').value;
+    const carpeta = document.getElementById('carpeta').value.trim();
+    const imputado = document.getElementById('imputado').value.trim();
+    const nombre = document.getElementById('nombre').value.trim();
 
-    const campos = ['oficio',  'numeromes',  'imputadop', 'year']
-   
+    const campos = ['oficio','oficio2', 'remitente', 'cargo', 'diao' , 'meso' ,'dia' ,'year', 'numeromes', 'mes' , 'carpeta' , 'imputado' , 'nombre']
+     
     // Verificar y resaltar campos vacíos
     let algunCampoVacio = false;
 
@@ -44,7 +53,7 @@ async function generateOficio() {
     }
 
     // Continuar con la generación del documento
-    const templateUrl = 'anexos/2p1integra.docx'; // URL o ruta del archivo de plantilla
+    const templateUrl = 'documentos/desaparecidop.docx'; // URL o ruta del archivo de plantilla
     let arrayBuffer;
 
     try {
@@ -57,12 +66,21 @@ async function generateOficio() {
 
     const zip = new PizZip(arrayBuffer);
     const doc = new window.docxtemplater().loadZip(zip);
-
+ 
     doc.setData({
         oficio: oficio,
+        oficio2: oficio2,
+        remitente: remitente,
+        cargo: cargo,
+        diao: diao,
+        meso: meso,
+        dia: dia,
         numeromes: numeromes,
         year: year,
-        imputadop: imputadop
+        mes: mes,
+        carpeta: carpeta,
+        imputado: imputado,
+        nombre: nombre
     });
 
     try {
@@ -82,9 +100,8 @@ async function generateOficio() {
         mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
     });
 
-    const fileName = `Anexo ${oficio || 'sinOficio'}.docx`;
+    const fileName = `Documento_${oficio || 'sinOficio'}.docx`;
 
     saveAs(out, fileName);
     
 }
-
