@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Positivo en Integra</title>
+  <title>2 Personas, 1 Positiva con Variación de Nombre en Integra</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
 </head>
@@ -16,7 +16,9 @@
       <div class="col-md-8 col-lg-6 form-container">
 
 
-        <h2 class="text-center form-header mb-4 mt-4">Positivo en Integra</h2>
+        <h2 class="text-center form-header mb-4 mt-4">
+          1 Persona con Información y Variación de Nombre
+        </h2>
         <form id="myForm" onsubmit="generarCorreo(event)">
 
           <div class="form-group">
@@ -189,9 +191,17 @@
             <input type="text" class="form-control" id="carpeta" name="carpeta" oninput="convertirAMayusculas(this)">
           </div>
           <div class="form-group">
-            <label for="namei">Nombre del imputado:</label>
-            <input type="text" class="form-control" id="imputado" name="imputado" oninput="convertirAMayusculas(this)">
+            <label for="namei">Nombre del imputado</label>
+            <input type="text" class="form-control" id="imputado" name="imputadop"
+              oninput="convertirAMayusculas(this)">
           </div>
+
+          <div class="form-group">
+            <label for="namei">Variación de nombre</label>
+            <input type="text" class="form-control" id="variacion" name="variacion"
+              oninput="convertirAMayusculas(this)">
+          </div>
+
           <div class="form-group">
             <label for="name">Nombre de quien efectuó busqueda:</label>
             <select class="form-control" id="nombre" name="nombre">
@@ -223,7 +233,7 @@
           <div class="form-row">
 
             <button type="button" class="btn btn-custom btn-md" onclick="generateDocument()">
-              Generar Oficio
+              Generar Documento
             </button>
           </div>
 
@@ -246,8 +256,8 @@
   <script src="https://cdn.jsdelivr.net/npm/pizzip@3.1.1/dist/pizzip.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docxtemplater@3.27.1/build/docxtemplater.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
-  <script src="js/documentos/integrap.js"></script>
-  <script src="js/anexos/positivoi.js"></script>
+  <script src="js/documentos/1ppvariacion.js"></script>
+  <script src="js/anexos/1ppvariacion.js"></script>
   <script src="js/mayus.js"></script>
   <script src="js/correo.js"></script>
   <script src="js/fecha2.js"></script>
